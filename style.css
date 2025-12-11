@@ -1,0 +1,290 @@
+:root {
+  --blue: #AEE1F9;
+  --blue-light: #c7edff;
+  --yellow: #F7ECA8;
+  --yellow-light: #faf3c9;
+  --cream: #FDFBF3;
+  --text: #2A4D69;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+}
+
+/* NAVBAR */
+.navbar {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  
+}
+
+.logo {
+  width: 200px;
+  cursor: pointer;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
+  position: relative;
+}
+
+.navbar ul li a {
+  color: var(--text);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar ul li::after {
+  content: '';
+  height: 3px;
+  width: 0;
+  background: var(--yellow);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.4s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+/* BANNER */
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(174,225,249,0.6), rgba(247,236,168,0.6)), url('images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: var(--text);
+}
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.content p {
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+  color: var(--text);
+}
+
+/* BUTTON */
+button {
+  width: 200px;
+  padding: 12px 0;
+  text-align: center;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid var(--yellow);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+button span {
+  background: var(--yellow);
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+button:hover {
+  border: none;
+}
+
+button a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 100px;
+  text-align: center;
+}
+
+section h2 {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.about p, .essays p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* PRODUCTS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--cream);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  border: 2px solid var(--blue);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3, .card h4, .card p {
+  color: var(--text);
+}
+
+/* ESSAYS GRID */
+.essays-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* FEEDBACK */
+.feedback {
+  padding: 60px 100px;
+  text-align: center;
+  background: var(--blue-light);
+  border-top: 3px solid var(--yellow);
+}
+
+.input-text, .input-area {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--blue);
+  background: var(--cream);
+  color: var(--text);
+  font-size: 16px;
+}
+
+.input-area {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 150px;
+  padding: 12px;
+  margin: 10px auto 0;
+  border: none;
+  border-radius: 25px;
+  background: var(--yellow);
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--blue);
+}
+
+/* FOOTER */
+footer {
+  background: var(--blue);
+  color: var(--text);
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* MODAL ZOOM ẢNH */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  border-radius: 10px;
+  animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.5);}
+  to {transform: scale(1);}
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
